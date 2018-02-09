@@ -23,75 +23,56 @@ app.scripts.config.serve_locally = True
 
 app.layout = html.Div(children=[html.Link(rel='stylesheet', href='/static/dash.css'),
 
-                                ## the nav header:
-                                html.Div(className='navigation-bar', children=[
-
-                                                                               html.Div(id='navigation-container', children=[
-                                                                                                                             html.Img(className='logo', src="/static/images/a.company.svg", width="50px", height="50px"),
-                                                                                                                             html.Ul(id='nav_ul', children=[
-                                                                                                                                                            html.Li(html.A('Home', href="#")),
-                                                                                                                                                            html.Li(html.A('User Guide', href="#")),
-                                                                                                                                                            html.Li(html.A('Classifier', href="#")),
-                                                                                                                                                           ]
-                                                                                                                                    )
-                                                                                                                            ]
-                                                                                       )
-
-                                                                              ]
-                                         ),
 
                                 html.Div(className='row', children=[html.H1('Dynamic Plot Creation', style={'text-align':'left', 'padding-left': '10px'})]),
 
 
                                 html.Div(className='row', children=[
-                                                                                                                         html.Div(className='colLeft', children=[
-                                                                                                                                                                 html.Div(className='colContainer', children=[
-                                                                                                                                                                                                                html.H2('Data Processing Section:'),
+                                                                     html.Div(className='colLeft', children=[
+                                                                                                             html.Div(className='colContainer', children=[
+                                                                                                                                                            html.H2('Data Processing Section:'),
 
-                                                                                                                                                                                                                html.H3('Step 1: Load data:', className='steps'),
-                                                                                                                                                                                                                dcc.Upload(className='button_upload', id='upload-data', multiple=True, children=html.Div(id='upload_text_box', children=['Drag and Drop or ',
-                                                                                                                                                                                                                                                                                                                                     html.A('Click to Select Files'),
-                                                                                                                                                                                                                                                                                                                                    ],
-                                                                                                                                                                                                                                                                                                        ),
-                                                                                                                                                                                                                          ),
+                                                                                                                                                            html.H3('Step 1: Load data:', className='steps'),
+                                                                                                                                                            dcc.Upload(className='button_upload', id='upload-data', multiple=True, children=html.Div(id='upload_text_box', children=['Drag and Drop or ',
+                                                                                                                                                                                                                                                                                 html.A('Click to Select Files'),
+                                                                                                                                                                                                                                                                                ],
+                                                                                                                                                                                                                                                    ),
+                                                                                                                                                                      ),
 
-                                                                                                                                                                                                                html.Div(className='column_selector', children=[html.H3('Step 2. Select a column to visualise distribution:'),
+                                                                                                                                                            html.Div(className='column_selector', children=[html.H3('Step 2. Select a column to visualise distribution:'),
 
-                                                                                                                                                                                                                                                                dcc.Dropdown(value=['Please load data.'],
-                                                                                                                                                                                                                                                                                options=[{'label': i, 'value': i} for i in ['Please load data.']],
-                                                                                                                                                                                                                                                                                multi=False,
-                                                                                                                                                                                                                                                                                id='target_col_dropdown',
-                                                                                                                                                                                                                                                                                className='dropdownSelect'
-                                                                                                                                                                                                                                                                            ),
-                                                                                                                                                                                                                                                                html.P(id='target_col'),
-                                                                                                                                                                                                                                                                ]
+                                                                                                                                                                                                            dcc.Dropdown(value=['Please load data.'],
+                                                                                                                                                                                                                            options=[{'label': i, 'value': i} for i in ['Please load data.']],
+                                                                                                                                                                                                                            multi=False,
+                                                                                                                                                                                                                            id='target_col_dropdown',
+                                                                                                                                                                                                                            className='dropdownSelect'
                                                                                                                                                                                                                         ),
-
-
-
-
+                                                                                                                                                                                                            html.P(id='target_col'),
                                                                                                                                                                                                             ]
-                                                                                                                                                                        )
-
-
-                                                                                                                                                                  ]
-                                                                                                                                  ),
-
-                                                                                                                         html.Div(className='colRight', children=[
-                                                                                                                                                                    html.Div(className='colContainer', children=[html.H2("Visualisation Section"),
-                                                                                                                                                                                                            html.Div(children=[html.H4('Please load a data file in order to populate a table and visualisation below', id='output-data-upload')]),
-                                                                                                                                                                                                            html.Div(dt.DataTable(rows=[{}]), style={'display': 'none'}),
-                                                                                                                                                                                                            html.Div(id='target_col_distribution_div', children=[dcc.Graph(id='target_col_dist')])
-                                                                                                                                                                                                                ]
-                                                                                                                                                                            )
-
-                                                                                                                                                                ]
-                                                                                                                                 ),
+                                                                                                                                                                    ),
 
 
 
 
-                                                                                ]
+                                                                                                                                                        ]
+                                                                                                                    )
+
+
+                                                                                                              ]
+                                                                              ),
+
+                                                                     html.Div(className='colRight', children=[
+                                                                                                                html.Div(className='colContainer', children=[html.H2("Visualisation Section"),
+                                                                                                                                                            html.Div(children=[html.H4('Please load a data file in order to populate a table and visualisation below', id='output-data-upload')]),
+                                                                                                                                                            html.Div(dt.DataTable(rows=[{}]), style={'display': 'none'}),
+                                                                                                                                                            html.Div(id='target_col_distribution_div', children=[dcc.Graph(id='target_col_dist')])
+                                                                                                                                                            ]
+                                                                                                                        )
+
+                                                                                                            ]
+                                                                             ),
+
+                                                                ]
                                             ),
 
                                 # hidden variables stored in the web browser:
