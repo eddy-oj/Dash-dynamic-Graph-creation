@@ -184,27 +184,10 @@ def draw_target_col_dist(column, jsonified_data):
     data = [go.Bar(
                     x=keys,
                     y=values,
-                    marker={
-                        'color': 'rgb(255,230,0)',
-                        'line': {'width': 0.5, 'color': 'rgb(255,230,0)'}
-                            }
-                            )
-            ]
+                   )
+           ]
 
-    bar_figure = {'data': data,
-            'layout': go.Layout(
-                                xaxis={
-                                        'title': 'Bar Chart Showing the Count of Unique Column Values'
-
-                                      },
-                                           yaxis={
-                                                'title': 'Count',
-                                                 },
-                                #margin={'l': 40, 'b': 40, 't': 10, 'r': 0},
-                                hovermode='closest',
-                                )
-            }
-
+    bar_figure = {'data': data}
 
     return bar_figure
 
