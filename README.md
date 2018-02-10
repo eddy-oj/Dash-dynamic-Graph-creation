@@ -5,7 +5,6 @@
 pip install dash==0.20.0
 
 pip install dash-renderer==0.11.3 
-
 pip install dash-html-components==0.8.0
 
 pip install dash-core-components==0.18.1 
